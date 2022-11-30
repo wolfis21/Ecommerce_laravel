@@ -35,6 +35,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('empleado');
         Schema::dropIfExists('zona');
+        Schema::dropIfExists('empresas');
     }
 };

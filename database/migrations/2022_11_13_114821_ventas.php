@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('ventas', function (Blueprint $table) {
-            $table->bigIncrements('idVentas');
+            $table->id('id');
             $table->date('date_vent');
             $table->string('client_ref', 40)->nullable();
             $table->integer('cant_product')->nullable();

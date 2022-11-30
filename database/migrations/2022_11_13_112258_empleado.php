@@ -15,16 +15,19 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('empleado', function (Blueprint $table) {
-            $table->bigIncrements('idEmpleado');
-            $table->integer('id');
+            $table->bigIncrements('id');
+            $table->integer('cedula');
             $table->string('pname');
             $table->string('psubname');
             $table->date('fecha_n')->nullable();
             $table->string('direccion', 75)->nullable();
             $table->string('telefono', 35)->nullable();
             $table->string('cargo', 20);
-            $table->unsignedBigInteger('zona_idZona');
-            $table->foreign('zona_idZona')->references('idZona')->on('zona');
+            $table->unsignedBigInteger('zona_id');
+            $table->foreign('zona_id')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate()
+            ->references('id')->on('zona');
             $table->rememberToken();
             $table->timestamps();
         });

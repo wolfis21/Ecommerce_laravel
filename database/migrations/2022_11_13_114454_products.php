@@ -14,16 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('producto', function (Blueprint $table) {
-            $table->bigIncrements('idProducto');
+        Schema::create('products', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('codig_produc', 20)->nullable();
             $table->string('name_product', 40)->nullable();
             $table->text('descrip_product')->nullable();
             $table->float('precio_product', 8, 2)->nullable();
             $table->integer('cant_stock')->nullable();
-            $table->unsignedBigInteger('zona_idZona');
-            $table->foreign('zona_idZona')->references('idZona')->on('zona');
-            $table->rememberToken();
+            $table->unsignedBigInteger('zona_id');
+            $table->foreign('zona_id')
+            ->cascadeOnUpdate()
+            ->cascadeOnDelete()
+            ->references('id')->on('zona');
             $table->timestamps();
         });
     }
@@ -35,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('producto');
+        Schema::dropIfExists('products');
     }
 };

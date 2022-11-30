@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +47,14 @@ Route::get('users-profile', function () {
 });
 
 /* fin de dashboard */
+
+ /* productos gestion */
+Route::resource('products', ProductController::class);
+//Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* gestion de empresa */
+Route::resource('empresa', EmpresaController::class);

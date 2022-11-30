@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('producto_has_ventas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedBigInteger('producto_idProducto');
-            $table->foreign('producto_idProducto')->references('idProducto')->on('producto');
-            $table->unsignedBigInteger('ventas_idVentas');
-            $table->foreign('ventas_idVentas')->references('idVentas')->on('ventas');              
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->unsignedBigInteger('ventas_id');
+            $table->foreign('ventas_id')->references('id')->on('ventas');              
         });
     }
 

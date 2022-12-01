@@ -1,24 +1,66 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
-        
-        <div class="form-group">
-            {{ Form::label('direccion_z') }}
-            {{ Form::text('direccion_z', $zona->direccion_z, ['class' => 'form-control' . ($errors->has('direccion_z') ? ' is-invalid' : ''), 'placeholder' => 'direccion de sede']) }}
-            {!! $errors->first('direccion_z', '<div class="invalid-feedback">:message</div>') !!}
+@section('content')
+
+    <div class="container">
+        <div class="raw">
+        <div class="row">
+                <div class="col-md-6">
+                    <h5>Agregar Sede de la Empresa</h5>
+                    <p class="p-span">Ingrese la informacion de la sede </p>
+                </div>
+                
+            </div>
+            <!-- inicio de formulario -->
+            <form class="formulario" action="{{route('zona.store')}}" name="formulario_registro" method="POST">
+                {{ csrf_field() }}
+                <div class="form-row">
+                    <!-- Lado izquierdo del formulario -->
+                    <div class="form-group col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <label for="name">Direccion</label>
+                            <input type="text" class="form-control  @error('direccion') is-invalid @enderror" name="direccion_z" id="direccion" autocomplete="off" value="{{ old('direccion') }}" placeholder="Nombre" >
+                            @error('name')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="input-group">
+                            <label for="numero_contac">Numero contacto</label>
+                            <input type="text" class="form-control @error('numero_contac') is-invalid @enderror" name="number_cont" id="numero_contac" autocomplete="off" value="{{ old('numero_contac') }}" placeholder="Apellido">
+                            @error('numero_contac')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="input-group">
+                        <div class="input-group">
+                           <label for="statu">Agregar Empresa</label>
+                               <select name="empresa_id" class="form-control"  id="empresa" >
+                               @if($empresas->count() > 0)
+                                    <option disable value="">N/a</option>
+                                    @foreach($empresas as $empresa)
+                                        <option value="{{$empresa->id}}">{{$empresa->name_empre}}</option>
+                                    @endforeach
+                               @endif
+                           </select>
+                       </div>
+                        </div>
+                                                       
+                    </div>
+
+                </div>
+                <!-- botones de guardar y cancelar -->
+                <div class="addEstudent">
+                    <button class="btn btn-can">
+                        <a href="{{ URL::previous() }}">Cancelar</a>
+                    </button>
+                    <button type="submit" class="btn btn-submit" value="enviar">
+                        Guardar
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            {{ Form::label('number_cont') }}
-            {{ Form::text('number_cont', $zona->number_cont, ['class' => 'form-control' . ($errors->has('number_cont') ? ' is-invalid' : ''), 'placeholder' => 'numero de contacto']) }}
-            {!! $errors->first('number_cont', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group"> {{-- aca mejor es que se auto asigne la llave foranea --}}
-            {{ Form::label('empresa_id') }}
-            {{ Form::text('empresa_id', $zona->empresa_id, ['class' => 'form-control' . ($errors->has('empresa_id') ? ' is-invalid' : ''), 'placeholder' => 'id de empresa ']) }}
-            {!! $errors->first('empresa_id', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-     
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</div>
+
+@endsection

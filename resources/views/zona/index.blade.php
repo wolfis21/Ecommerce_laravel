@@ -49,8 +49,8 @@
                                             investigar si dos foreach pueden
                                             traerme los datos de empresa y zonas a la vez
                                             --}}
-											<td>{{ $empresa->rif_empresa }}</td>
-											<td>{{ $empresa->name_empre }}</td>
+											<td>{{ $zona->empresa->rif_empresa }}</td>
+											<td>{{ $zona->empresa->name_empre }}</td>
 											<td>{{ $zona->direccion_z }}</td>
                                             <td>{{ $zona->number_cont }}</td>
                                             <td>

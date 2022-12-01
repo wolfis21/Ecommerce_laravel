@@ -26,4 +26,7 @@ class Empleado extends Model
      */
     protected $fillable = ['cedula','pname','psubname', 'fecha_n', 'direccion', 'telefono', 'cargo'];
 
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }

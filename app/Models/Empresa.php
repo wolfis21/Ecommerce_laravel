@@ -23,4 +23,8 @@ class Empresa extends Model
      */
     protected $fillable = ['rif_empresa','name_empre','descript_empre', 'num_p'];
 
+    public function zonas(){
+        return $this->hasMany(Zona::class);
+    }
+
 }

@@ -22,4 +22,8 @@ class Zona extends Model
      */
     protected $fillable = ['direccion_z','number_cont','empresa_id'];
 
+    public function empresa(){
+        return $this->belongsTo(Empresa::class);
+    }
+
 }

@@ -31,7 +31,11 @@ class ZonaController extends Controller
     public function create()
     {
         $zona = new Zona();
-        return view('zona.create', compact('zona'));
+        $empresa = Empresa::all();
+     
+        return view('zona.create', compact('zona'))->with([
+            'empresas' => $empresa
+        ]);
     }
 
     /**
@@ -42,7 +46,8 @@ class ZonaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Zona::$rules);
+        
+        
 
         $zona = Zona::create($request->all());
 

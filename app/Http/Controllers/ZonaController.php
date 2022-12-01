@@ -7,7 +7,7 @@ use App\Models\Zona;
 
 use Illuminate\Http\Request;
 
-class zonaController extends Controller
+class ZonaController extends Controller
 {
     //
     /**

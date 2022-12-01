@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\zonaController;
@@ -61,4 +62,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('empresa', EmpresaController::class);
 
 /* gestion de zona */
-Route::resource('zona', zonaController::class);
+Route::resource('zona', ZonaController::class);
+
+/* gestion de empleado */
+Route::resource('empleado', EmpleadoController::class);

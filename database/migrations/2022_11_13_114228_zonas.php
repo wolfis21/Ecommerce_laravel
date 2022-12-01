@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('zona', function (Blueprint $table) {
+        Schema::create('zonas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('direccion_z', 70)->nullable();
             $table->string('number_cont', 20)->nullable();
@@ -37,7 +37,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('usuario');
         Schema::dropIfExists('empleado');
-        Schema::dropIfExists('zona');
+        Schema::dropIfExists('zonas');
         Schema::dropIfExists('empresas');
     }
 };

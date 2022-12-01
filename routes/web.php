@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\zonaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* seeccion de shop */
+/* seeccion de shop ------------------------------------------------*/
 
 Route::get('/', function () {
     return view('shop/home');
@@ -46,7 +47,7 @@ Route::get('users-profile', function () {
      return view('dashboard/users-profile');
 });
 
-/* fin de dashboard */
+/* fin de dashboard ------------------------------------------------*/
 
  /* productos gestion */
 Route::resource('products', ProductController::class);
@@ -58,3 +59,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* gestion de empresa */
 Route::resource('empresa', EmpresaController::class);
+
+/* gestion de zona */
+Route::resource('zona', zonaController::class);

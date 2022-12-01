@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VentaController;
 use App\Http\Controllers\zonaController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,3 +67,6 @@ Route::resource('zona', ZonaController::class);
 
 /* gestion de empleado */
 Route::resource('empleado', EmpleadoController::class);
+
+/* gestion de venta */
+Route::resource('venta', VentaController::class);

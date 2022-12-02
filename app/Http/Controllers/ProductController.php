@@ -77,8 +77,15 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        $zona_product = Zona::find($product->zona_id);
+        
+        $zonas = Zona::all();
 
-        return view('product.edit', compact('product'));
+       
+        return view('product.edit', compact('product'))->with([
+            'zonas' => $zonas,
+            'zonas_product' =>$zona_product,
+        ]);
     }
 
     /**

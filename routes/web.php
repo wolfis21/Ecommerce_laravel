@@ -62,8 +62,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /* gestion de empresa */
 Route::resource('empresa', EmpresaController::class);
 
-
-
 /* gestion de zona */
 Route::resource('zona', ZonaController::class);
 

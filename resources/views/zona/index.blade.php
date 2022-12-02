@@ -38,17 +38,14 @@
 										<th>rif de empresa</th>
 										<th>name de empresa</th>
 										<th>direccion de la empresa</th>
-										<th>numero de contacto</th>
+										<th>numero de sede</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($zonas as $zona)
                                         <tr>
-                                           {{-- 
-                                            investigar si dos foreach pueden
-                                            traerme los datos de empresa y zonas a la vez
-                                            --}}
+
 											<td>{{ $zona->empresa->rif_empresa }}</td>
 											<td>{{ $zona->empresa->name_empre }}</td>
 											<td>{{ $zona->direccion_z }}</td>
@@ -56,7 +53,7 @@
                                             <td>
                                                 <form action="{{ route('zona.destroy',$zona->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('zona.show',$zona->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                   {{--  <a class="btn btn-sm btn-success" href="{{ route('zona.edit',$zona->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a> --}}
+                                                    <a class="btn btn-sm btn-success" href="{{ route('zona.edit',$zona->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

@@ -43,7 +43,7 @@
                                         <th>direccion</th>
                                         <th>telefono</th>
                                         <th>cargo</th>
-                                        <th>zona_id</th>
+                                        <th>ubicacion de zona</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -59,7 +59,7 @@
                                             <td>{{ $empleado->direccion}}</td>
                                             <td>{{ $empleado->telefono}}</td>
                                             <td>{{ $empleado->cargo}}</td>
-                                            <td>{{ $empleado->zona_id}}</td>
+                                            <td>{{ $empleado->zona->direccion_z}}</td>
                                             <td>
                                                 <form action="{{ route('empleado.destroy',$empleado->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('empleado.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>

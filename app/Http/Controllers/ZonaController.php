@@ -46,7 +46,11 @@ class ZonaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'direccion_z' => 'required|string|min:15',
+            'number_cont' =>'required|string|min:8',
+            'empresa_id' =>'required',
+            ]);
         $zona = Zona::create($request->all());
 
         return redirect()->route('zona.index')
@@ -72,11 +76,16 @@ class ZonaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idzona)
+    public function edit($id)
     {
-        $zona = Zona::find($idzona);
+        $zona = Zona::find($id);
+        $zona_empresa = Zona::find($zona->empresa_id);
+        $empresa = Empresa::all();
 
-        return view('zona.edit', compact('zona'));
+        return view('zona.edit', compact('zona'))->with([
+            'empresas' => $empresa,
+            'zona_empresa' => $zona_empresa,
+        ]);
     }
 
     /**
@@ -88,7 +97,11 @@ class ZonaController extends Controller
      */
     public function update(Request $request, Zona $zona)
     {
-        request()->validate(Zona::$rules);
+        $request->validate([
+            'direccion_z' => 'required|string|min:15',
+            'number_cont' =>'required|string|min:8',
+            'empresa_id' =>'required',
+            ]);
 
         $zona->update($request->all());
 

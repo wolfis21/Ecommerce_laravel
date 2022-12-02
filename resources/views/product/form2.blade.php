@@ -31,10 +31,12 @@
             <label for="statu">Asociar a Zona</label>
                 <select name="zona_id" class="form-control"  id="zona" >
                 @if($zonas->count() > 0)
-                     <option default value="">n/a</option> 
+                     <option value="{{$zonas_product->id}}">{{$zonas_product->direccion_z}}</option> 
                      @foreach($zonas as $zona)
+                        @if($zona->id != $zonas_product->id )
                          <option value="{{$zona->id}}">{{$zona->direccion_z}}</option>
-                     @endforeach
+                        @endif
+                    @endforeach
                 @endif
             </select>
         </div>

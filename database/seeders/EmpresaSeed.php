@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Empresa;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +27,11 @@ class EmpresaSeed extends Seeder
 
         DB::table('empresas')->insert([
             'rif_empresa' => rand(10000000,25000000),
-            'name_empre' => fake()->name().'C.A',
-            'descript_empre' => fake()->lastname(),
+            'name_empre' => 'Muebles Import C.A',
+            'descript_empre' => 'Empresa n.1 en importaciones de muebles',
             'num_p' => rand(10000000,25000000),
+            'created_at' => fake()->dateTimeBetween('-30 days', '+30 days'), 
+            'updated_at' => fake()->dateTimeBetween('-30 days', '+30 days'),
         ]);
     }
 }

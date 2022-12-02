@@ -39,9 +39,13 @@ class EmpresaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        request()->validate(Empresa::$rules);
-
+    {       
+         $request->validate([
+        'rif_empresa' => 'required|integer|min:8',
+        'name_empre' =>'required|string',
+        'descript_empre' =>'required|string',
+        'num_p' =>'required|integer|min:8',
+    ]);
         $empresa = Empresa::create($request->all());
 
         return redirect()->route('empresa.index')
@@ -82,9 +86,14 @@ class EmpresaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Empresa $empresa)
-    {
-        request()->validate(Empresa::$rules);
-
+    { 
+        $request->validate([
+        'rif_empresa' => 'required|integer|min:8',
+        'name_empre' =>'required|string',
+        'descript_empre' =>'required|string',
+        'num_p' =>'required|integer|min:8',
+        ]);
+        
         $empresa->update($request->all());
 
         return redirect()->route('empresa.index')

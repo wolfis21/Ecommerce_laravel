@@ -44,7 +44,16 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Empleado::$rules);
+        $request->validate([
+            'cedula' => 'required|integer',
+            'pname' =>'required|string',
+            'psubname' =>'required|string',
+            'fecha_n' =>'required|date',
+            'direccion' =>'required|string',
+            'telefono' =>'required|integer|min:8',
+            'cargo' =>'required|string',
+            'zona_id' => 'required',
+        ]);
 
         $empleado = Empleado::create($request->all());
 
@@ -74,7 +83,7 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::find($id);
-
+        $empleado_zona = Zona::find($zona->);
         return view('empleado.edit', compact('empleado'));
     }
 
@@ -87,7 +96,16 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        request()->validate(Empleado::$rules);
+        $request->validate([
+            'cedula' => 'required|integer',
+            'pname' =>'required|string',
+            'psubname' =>'required|string',
+            'fecha_n' =>'required|date',
+            'direccion' =>'required|string',
+            'telefono' =>'required|integer|min:8',
+            'cargo' =>'required|string',
+            'zona_id' => 'required',
+        ]);
 
         $empleado->update($request->all());
 

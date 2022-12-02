@@ -41,7 +41,7 @@
 										<th> descrip_product</th>
 										<th>precio de producto</th>
 										<th>cantidad en stock</th>
-										<th>Zona</th>
+										<th>Sede</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -55,7 +55,7 @@
                                             <td>{{ $product->descrip_product }}</td>
                                             <td>{{ $product->precio_product }}</td>
                                             <td>{{ $product->cant_stock }}</td>
-                                            <td>{{ $product->zona_idZona }}</td>
+                                            <td>{{ $product->zona->direccion_z }}</td>
 
                                             <td>
                                                 <form action="{{ route('product.destroy',$product->id) }}" method="POST">

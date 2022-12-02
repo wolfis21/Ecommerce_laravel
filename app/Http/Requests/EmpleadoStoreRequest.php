@@ -13,7 +13,7 @@ class EmpleadoStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,14 @@ class EmpleadoStoreRequest extends FormRequest
     {
         return [
             //
+            'cedula' => 'required|integer',
+            'pname' =>'required|string',
+            'psubname' =>'required|string',
+            'fecha' =>'required|date',
+            'direccion' =>'required|string',
+            'telefono' =>'required|integer|digits:11',
+            'cargo' =>'required|string',
+            'zona_id' => 'required',
         ];
     }
 }

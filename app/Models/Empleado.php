@@ -26,7 +26,12 @@ class Empleado extends Model
      */
     protected $fillable = ['cedula','pname','psubname', 'fecha_n', 'direccion', 'telefono', 'cargo'];
 
+    public function zona(){
+        return $this->belongsTo(Zona::class);
+    }
+
     public function users(){
         return $this->hasMany(User::class);
     }
+
 }

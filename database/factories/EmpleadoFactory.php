@@ -25,7 +25,7 @@ class EmpleadoFactory extends Factory
             'psubname' => fake()->lastname(),
             'fecha_n' => rand(1,2000),
             'direccion' => 'Venezuela',
-            'telefono' => rand(1,2000),
+            'telefono' => rand(10000000,25000000),
             'cargo' => 'Jefe de Ventas',
         ];
     }

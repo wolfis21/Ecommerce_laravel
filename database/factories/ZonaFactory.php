@@ -18,6 +18,8 @@ class ZonaFactory extends Factory
     {
         return [
             //
+            'direccion_z' => fake()->name(),
+            'number_cont' => rand(10000000,25000000),
         ];
     }
 }

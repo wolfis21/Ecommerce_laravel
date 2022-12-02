@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('descrip_product')->nullable();
             $table->float('precio_product', 8, 2)->nullable();
             $table->integer('cant_stock')->nullable();
-            $table->unsignedBigInteger('zona_id');
+            $table->unsignedBigInteger('zona_id')->unsigned()->nullable();
             $table->foreign('zona_id')
             ->cascadeOnUpdate()
             ->cascadeOnDelete()

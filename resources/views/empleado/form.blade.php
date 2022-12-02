@@ -42,14 +42,19 @@
             {!! $errors->first('cargo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
      
-        <div class="form-group"> {{-- hacer esto como seleccion
-                                    ya que el admin puede contratar a empleados de 
-                                    distintas sedes o zonas --}}
-            {{ Form::label('zona_id') }}
-            {{ Form::text('zona_id', $empleado->zona_id, ['class' => 'form-control' . ($errors->has('zona_id') ? ' is-invalid' : ''), 'placeholder' => 'Precio de empleadoo']) }}
-            {!! $errors->first('zona_id', '<div class="invalid-feedback">:message</div>') !!}
+
+        <div class="form-group">
+            <label for="statu">Agregar Zona</label>
+            <select name="zona_id" class="form-control"  id="zona" >
+                @if($zonas->count() > 0)
+                     {{-- <option disable value="">N/a</option> --}}
+                     @foreach($zonas as $zona)
+                         <option value="{{$zona->id}}">{{$zona->direccion_z}}</option>
+                     @endforeach
+                @endif
+            </select>
         </div>
-     
+         
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>

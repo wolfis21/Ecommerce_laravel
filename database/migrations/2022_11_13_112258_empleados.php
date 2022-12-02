@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('direccion', 75)->nullable();
             $table->string('telefono', 35)->nullable();
             $table->string('cargo', 20);
-            $table->unsignedBigInteger('zona_id');
+            $table->unsignedBigInteger('zona_id')->unsigned()->nullable();
             $table->foreign('zona_id')
             ->cascadeOnDelete()
             ->cascadeOnUpdate()

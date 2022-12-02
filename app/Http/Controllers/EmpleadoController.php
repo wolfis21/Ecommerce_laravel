@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Zona;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -29,7 +30,10 @@ class EmpleadoController extends Controller
     public function create()
     {
         $empleado = new Empleado();
-        return view('empleado.create', compact('empleado'));
+        $zona = Zona::all();
+        return view('empleado.create', compact('empleado'))->with([
+            'zonas'=> $zona
+        ]);
     }
 
     /**

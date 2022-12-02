@@ -18,6 +18,10 @@ class EmpresaFactory extends Factory
     {
         return [
             //
+            'rif_empresa' => rand(10000000,25000000),
+            'name_empre' => fake()->name(),
+            'descript_empre' => fake()->lastname(),
+            'num_p' => rand(1,2000),
         ];
     }
 }

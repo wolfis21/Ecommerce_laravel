@@ -47,9 +47,11 @@
             <label for="statu">Agregar Zona</label>
             <select name="zona_id" class="form-control"  id="zona" >
                 @if($zonas->count() > 0)
-                     <option disable value="">N/a</option>
+                     <option value="{{$zona_empleado->id}}">{{$zona_empleado->direccion_z}}</option>
                      @foreach($zonas as $zona)
+                        @if($zona_empleado->direccion_z != $zona->direccion_z)
                          <option value="{{$zona->id}}">{{$zona->direccion_z}}</option>
+                         @endif                    
                      @endforeach
                 @endif
             </select>

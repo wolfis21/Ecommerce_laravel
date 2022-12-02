@@ -20,7 +20,7 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('empleado.form')
+                            @include('empleado.form2')
 
                         </form>
                     </div>

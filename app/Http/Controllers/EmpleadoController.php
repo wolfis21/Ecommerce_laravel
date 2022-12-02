@@ -83,8 +83,13 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::find($id);
-        $empleado_zona = Zona::find($zona->);
-        return view('empleado.edit', compact('empleado'));
+        $zona_empleado = Zona::find($empleado->zona_id);
+        $zonas = Zona::all();
+
+        return view('empleado.edit', compact('empleado'))->with([
+            'zonas' => $zonas,
+            'zona_empleado' =>$zona_empleado,
+        ]);;
     }
 
     /**

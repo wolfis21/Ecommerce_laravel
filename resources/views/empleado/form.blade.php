@@ -20,7 +20,7 @@
                                     colocar un calendario chingon como en nuria con jquery etc
                                     --}}
             {{ Form::label('fecha_n') }}
-            {{ Form::text('fecha_n', $empleado->fecha_n, ['class' => 'form-control' . ($errors->has('fecha_n') ? ' is-invalid' : ''), 'placeholder' => 'fecha de nacimiento']) }}
+            {{ Form::date('fecha_n', $empleado->fecha_n, ['class' => 'form-control' . ($errors->has('fecha_n') ? ' is-invalid' : ''), 'placeholder' => 'fecha de nacimiento']) }}
             {!! $errors->first('fecha_n', '<div class="invalid-feedback">:message</div>') !!}
         </div>
      

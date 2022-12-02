@@ -29,7 +29,7 @@ class Product extends Model
         'descrip_product' => 'required',
         'precio_product' => 'required',
         'cant_stock' => 'required',
-		'zona_idZona' => 'required',
+		    'zona_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,8 +39,11 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['codig_produc','name_product','descrip_product', 'precio_product', 'cant_stock', 'zona_idZona'];
+    protected $fillable = ['codig_produc','name_product','descrip_product', 'precio_product', 'cant_stock', 'zona_id'];
 
+    public function zona(){
+      return $this->belongsTo(Zona::class);
+    }
 
-
+    
 }

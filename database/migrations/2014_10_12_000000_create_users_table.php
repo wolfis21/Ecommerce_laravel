@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('empleado_id')
             ->cascadeOnDelete()
             ->cascadeOnUpdate()
-            ->references('id')->on('empleado');
+            ->references('id')->on('empleados');
             $table->rememberToken();
             $table->timestamps();
         });

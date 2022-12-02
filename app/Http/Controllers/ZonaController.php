@@ -47,8 +47,6 @@ class ZonaController extends Controller
     public function store(Request $request)
     {
         
-        
-
         $zona = Zona::create($request->all());
 
         return redirect()->route('zona.index')

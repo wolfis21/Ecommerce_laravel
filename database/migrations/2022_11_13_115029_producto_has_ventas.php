@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('producto_has_ventas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')->on('products');
             $table->unsignedBigInteger('ventas_id');
             $table->foreign('ventas_id')->references('id')->on('ventas');              
         });

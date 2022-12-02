@@ -17,7 +17,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -49,7 +49,7 @@
                                     @foreach ($products as $product)
                                         <tr>
                                             
-											<td>{{ $product->idProducto }}</td>
+											<td>{{ $product->id}}</td>
 											<td>{{ $product->codig_produc }}</td>
 											<td>{{ $product->name_product }}</td>
                                             <td>{{ $product->descrip_product }}</td>
@@ -58,9 +58,9 @@
                                             <td>{{ $product->zona_idZona }}</td>
 
                                             <td>
-                                                <form action="{{ route('products.destroy',$product->idProducto) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('products.show',$product->idProducto) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('products.edit',$product->idProducto) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('product.destroy',$product->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('product.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('product.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

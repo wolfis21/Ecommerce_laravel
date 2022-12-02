@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Zona;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,10 @@ class ProductController extends Controller
     public function create()
     {
         $product = new Product();
-        return view('product.create', compact('product'));
+        $zona= Zona::all();
+        return view('product.create', compact('product'))->with([
+            'zonas' => $zona
+        ]);
     }
 
     /**
@@ -43,11 +47,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Product::$rules);
+        
 
         $product = Product::create($request->all());
 
-        return redirect()->route('products.index')
+        return redirect()->route('product.index')
             ->with('success', 'Product created successfully.');
     }
 
@@ -90,7 +94,7 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        return redirect()->route('products.index')
+        return redirect()->route('product.index')
             ->with('success', 'Product updated successfully');
     }
 
@@ -103,7 +107,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id)->delete();
 
-        return redirect()->route('products.index')
+        return redirect()->route('product.index')
             ->with('success', 'Product deleted successfully');
     }
 }

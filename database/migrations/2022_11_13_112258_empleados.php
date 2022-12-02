@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('zona_id')
             ->cascadeOnDelete()
             ->cascadeOnUpdate()
-            ->references('id')->on('zona');
+            ->references('id')->on('zonas');
             $table->rememberToken();
             $table->timestamps();
         });

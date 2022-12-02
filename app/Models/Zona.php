@@ -29,4 +29,7 @@ class Zona extends Model
     public function empleado(){
         return $this->hasMany(Empleado::class);
     }
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
 }

@@ -52,7 +52,7 @@ Route::get('users-profile', function () {
 /* fin de dashboard ------------------------------------------------*/
 
  /* productos gestion */
-Route::resource('products', ProductController::class);
+Route::resource('product', ProductController::class);
 //Auth::routes();
 
 Auth::routes();

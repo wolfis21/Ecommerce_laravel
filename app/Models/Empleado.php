@@ -15,6 +15,7 @@ class Empleado extends Model
         'direccion' => 'required',
         'telefono' => 'required',
         'cargo' => 'required',
+        'zona_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -24,7 +25,7 @@ class Empleado extends Model
      *
      * @var array
      */
-    protected $fillable = ['cedula','pname','psubname', 'fecha_n', 'direccion', 'telefono', 'cargo'];
+    protected $fillable = ['cedula','pname','psubname', 'fecha_n', 'direccion', 'telefono', 'cargo', 'zona_id'];
 
     public function zona(){
         return $this->belongsTo(Zona::class);

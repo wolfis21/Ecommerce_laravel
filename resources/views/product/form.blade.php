@@ -26,10 +26,17 @@
             {{ Form::text('cant_stock', $product->cant_stock, ['class' => 'form-control' . ($errors->has('cant_stock') ? ' is-invalid' : ''), 'placeholder' => 'cantidad']) }}
             {!! $errors->first('cant_stock', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
         <div class="form-group">
-            {{ Form::label('zona_idZona') }}
-            {{ Form::text('zona_idZona', $product->zona_idZona, ['class' => 'form-control' . ($errors->has('zona_idZona') ? ' is-invalid' : ''), 'placeholder' => 'Zona']) }}
-            {!! $errors->first('zona_idZona', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="statu">Asociar a Zona</label>
+                <select name="zona_id" class="form-control"  id="zona" >
+                @if($zonas->count() > 0)
+                     {{-- <option disable value="">N/a</option> --}}
+                     @foreach($zonas as $zona)
+                         <option value="{{$zona->id}}">{{$zona->direccion_z}}</option>
+                     @endforeach
+                @endif
+            </select>
         </div>
 
     </div>

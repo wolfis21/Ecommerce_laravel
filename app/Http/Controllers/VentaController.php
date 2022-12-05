@@ -58,9 +58,17 @@ class VentaController extends Controller
         $venta->cant_product = $request ->cant_product;
         //sacar precio y multiplicarlo por cantidad a comprar 
         $venta->precio_total = $request ->product_img * $request ->cant_product;
-
+        
         $venta->save();
+        //decremento de stock
+        $decremento = $request->cant_product;
+        
+        $producto = Product::find($request->product);
+        $producto->cant_stock -= $decremento;
+        $producto->saveOrfail();  
 
+        //
+        
         $opciones = $request->product;
 
         foreach ($opciones as $key => $opci) {

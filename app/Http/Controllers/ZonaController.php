@@ -15,11 +15,20 @@ class ZonaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda = $request->busqueda;
+        $direcciones = Zona::where('direccion_z','LIKE',$busqueda.'%')
+                        ->latest('id');
+
+        $data = [
+            'direcciones' =>$direcciones,
+            'busqueda' =>$busqueda,
+        ];
+        //arreglar esta busqueda
         $zonas = Zona::paginate();
 
-        return view('zona.index', compact('zonas'))
+        return view('zona.index',$data,compact('zonas'))
             ->with('i', (request()->input('page', 1) - 1) * $zonas->perPage());
     }
 

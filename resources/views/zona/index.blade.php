@@ -15,12 +15,21 @@
                             <span id="card_title">
                                 {{ __('zona') }}
                             </span>
-
+                              
+                            <div class="d-mx-flex justify-content-md-end float-right">
+                                <form action="{{route('zona.index')}}" method="GET">
+                                    <div class="btn-group">
+                                        <input type="text" name="busqueda" class="form-control">
+                                        <input type="submit" value="Enviar" class="btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+{{-- 
                              <div class="float-right">
                                 <a href="{{ route('zona.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
-                              </div>
+                              </div> --}}
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -66,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $zonas->links() !!}
+                {!! ($zonas->appends(['busqueda' => $busqueda])) !!}
             </div>
         </div>
     </div>

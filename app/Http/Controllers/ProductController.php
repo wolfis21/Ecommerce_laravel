@@ -55,10 +55,17 @@ class ProductController extends Controller
         
         $request->image->move(public_path('images'), $imageName);
         */ //
-        if($request->hasfile('image')){
+/*         if($request->hasfile('image')){
             $path = $request->image->store('public'); 
-        }
+        } */
         
+        if($request->hasfile('image')){
+            $imagen = $request->file('image');
+            $nameimage = Str::slug($request->name_product).".".$imagen->guessExtension();
+            $ruta =public_path("images/products");
+            $imagen->move($ruta,$nameimage);
+        }
+
         //
         $product = Product::create($request->all());
 

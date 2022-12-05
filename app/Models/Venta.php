@@ -8,9 +8,9 @@ class Venta extends Model
 {
 
     static $rules = [
-		'date_vent' => 'required',
+		'date_vent' => 'required|date',
         'client_ref' => 'required',
-        'cant_product' => 'required',
+        'cant_product' => 'required|integer',
         'precio_total' => 'required',
     ];
 
@@ -22,5 +22,9 @@ class Venta extends Model
      * @var array
      */
     protected $fillable = ['date_vent','client_ref','cant_product', 'precio_total'];
+
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
 
 }

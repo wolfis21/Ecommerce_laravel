@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="main" id="main">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -35,12 +35,13 @@
                                 <thead class="thead">
                                     <tr>
                                         
-										<th>Id producto</th>
-										<th>codigo de producto</th>
-										<th>name de producto</th>
-										<th> descrip_product</th>
-										<th>precio de producto</th>
-										<th>cantidad en stock</th>
+										<th>ID Producto</th>
+										<th>Codigo</th>
+										<th>Nombre de Producto</th>
+										<th>Descripcion</th>
+                                        <th>Imagen</th> {{-- Falta implementar --}}
+										<th>Precio</th>
+										<th>Stock</th>
 										<th>Sede</th>
                                         <th></th>
                                     </tr>
@@ -53,6 +54,7 @@
 											<td>{{ $product->codig_produc }}</td>
 											<td>{{ $product->name_product }}</td>
                                             <td>{{ $product->descrip_product }}</td>
+                                            <td><img src="{{$product->url_path}}" alt=""></td>
                                             <td>{{ $product->precio_product }}</td>
                                             <td>{{ $product->cant_stock }}</td>
                                             <td>{{ $product->zona->direccion_z }}</td>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('codig_produc', 20)->nullable();
             $table->string('name_product', 40)->nullable();
             $table->text('descrip_product')->nullable();
+            $table->string('image')->nullable();
             $table->float('precio_product', 8, 2)->nullable();
             $table->integer('cant_stock')->nullable();
             $table->unsignedBigInteger('zona_id')->unsigned()->nullable();

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="main" id="main">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -34,11 +34,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        {{-- buscar la manera de traerme tanto la empresa como la zona --}}
-										<th>rif de empresa</th>
-										<th>name de empresa</th>
-										<th>direccion de la empresa</th>
-										<th>numero de sede</th>
+                                       
+										<th>RIF de Empresa</th>
+										<th>Nombre de Empresa</th>
+										<th>Direccion</th>
+										<th>Numero de Sede</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,7 @@
                                             <td>{{ $zona->number_cont }}</td>
                                             <td>
                                                 <form action="{{ route('zona.destroy',$zona->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('zona.show',$zona->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('zona.show',$zona->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}
                                                     <a class="btn btn-sm btn-success" href="{{ route('zona.edit',$zona->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')

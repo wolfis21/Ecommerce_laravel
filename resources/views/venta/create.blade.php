@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appold')
 
 @section('template_title')
     Crear venta 
@@ -6,8 +6,8 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row row justify-content-center">
+            <div class="col-md-4">
 
                 @includeif('partials.errors')
 

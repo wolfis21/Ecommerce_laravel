@@ -16,6 +16,18 @@
             {{ Form::text('descrip_product', $product->descrip_product, ['class' => 'form-control' . ($errors->has('descrip_product') ? ' is-invalid' : ''), 'placeholder' => 'descripcion']) }}
             {!! $errors->first('descrip_product', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="mb-3">
+            <label class="form-label" for="inputImage">Select Image:</label>
+            <input 
+                type="file" 
+                name="image" 
+                id="inputImage"
+                class="form-control @error('image') is-invalid @enderror">
+
+            @error('image')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
         <div class="form-group">
             {{ Form::label('precio_product') }}
             {{ Form::text('precio_product', $product->precio_product, ['class' => 'form-control' . ($errors->has('precio_product') ? ' is-invalid' : ''), 'placeholder' => 'Precio de producto']) }}
@@ -40,7 +52,7 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
+    <div class="box-footer mt20 text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

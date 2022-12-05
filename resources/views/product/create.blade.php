@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appold')
 
 @section('template_title')
     Create Product
@@ -6,13 +6,13 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
+                <div class="card">
+                    <div class="card-body">
                         <span class="card-title">Create Product</span>
                     </div>
                     <div class="card-body">

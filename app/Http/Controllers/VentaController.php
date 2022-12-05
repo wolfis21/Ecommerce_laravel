@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Venta;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,11 @@ class VentaController extends Controller
     public function index()
     {
         $ventas = Venta::paginate();
-
+        $producto = Product::all();
         return view('venta.index', compact('ventas'))
-            ->with('i', (request()->input('page', 1) - 1) * $ventas->perPage());
+            ->with('i', (request()->input('page', 1) - 1) * $ventas->perPage())->with([
+                'products'=> $producto 
+            ]);
     }
 
     /**
@@ -30,7 +33,12 @@ class VentaController extends Controller
     public function create()
     {
         $venta = new Venta();
-        return view('venta.create', compact('venta'));
+        //traerme todos los productos para seleccionarlos
+        $producto = Product::all();
+
+        return view('venta.create', compact('venta'))->with([
+            'products'=> $producto 
+        ]);
     }
 
     /**
@@ -41,10 +49,25 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Venta::$rules);
+        //request()->validate(Venta::$rules);
+        //$venta = Venta::create($request->all());
 
-        $venta = Venta::create($request->all());
+        $venta= new Venta();
+        $venta->date_vent = $request ->date_vent;
+        $venta->client_ref = $request ->client_ref;
+        $venta->cant_product = $request ->cant_product;
+        //sacar precio y multiplicarlo por cantidad a comprar 
+        $venta->precio_total = $request ->product_img * $request ->cant_product;
 
+        $venta->save();
+
+        $opciones = $request->product;
+
+        foreach ($opciones as $key => $opci) {
+            # code...
+            $venta->products()->attach($opci);
+
+        }
         return redirect()->route('venta.index')
             ->with('success', 'Venta created successfully.');
     }
@@ -68,10 +91,10 @@ class VentaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idVenta)
+    public function edit($id)
     {
-        $venta = Venta::find($idVenta);
-
+        $venta = Venta::find($id);
+       
         return view('venta.edit', compact('venta'));
     }
 

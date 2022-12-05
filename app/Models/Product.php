@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,6 +27,7 @@ class Product extends Model
 		'codig_produc' => 'required',
         'name_product' => 'required',
         'descrip_product' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'precio_product' => 'required',
         'cant_stock' => 'required',
 		    'zona_id' => 'required',
@@ -39,11 +40,18 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['codig_produc','name_product','descrip_product', 'precio_product', 'cant_stock', 'zona_id'];
+    protected $fillable = ['codig_produc','name_product','descrip_product','image', 'precio_product', 'cant_stock', 'zona_id'];
+
+    public function getUrlPathAttribute(){
+      return Storage::url($this->path);
+    }
+
 
     public function zona(){
       return $this->belongsTo(Zona::class);
     }
 
-    
+    public function ventas(){
+      return $this->belongsToMany(Venta::class);
+  }
 }

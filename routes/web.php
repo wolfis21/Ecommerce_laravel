@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProductController;
@@ -36,17 +37,9 @@ Route::get('/category', function () {
 
 /* fin de shop */
 
-Route::get('/login', function () {
-    return view('/dashboard/login');
-});
-
 /* seccion de dashboard */
 Route::get('/dashboard', function () {
     return view('dashboard/dashboard');
-});
-
-Route::get('users-profile', function () {
-     return view('dashboard/users-profile');
 });
 
 /* fin de dashboard ------------------------------------------------*/
@@ -56,6 +49,8 @@ Route::resource('product', ProductController::class);
 //Auth::routes();
 
 Auth::routes();
+
+/* Route::resource('register', RegisterController::class); */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

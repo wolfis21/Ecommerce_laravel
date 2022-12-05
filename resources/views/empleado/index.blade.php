@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('template_title')
-    empleado
+    Empleado
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="main" id="main">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -35,15 +35,15 @@
                                 <thead class="thead">
                                     <tr>
                                      
-										<th>Id empleado</th>
-										<th>cedula</th>
-										<th>nombre</th>
-										<th> apellido</th>
-										<th>fecha de nacimiento</th>
-                                        <th>direccion</th>
-                                        <th>telefono</th>
-                                        <th>cargo</th>
-                                        <th>ubicacion de zona</th>
+										<th>ID Empleado</th>
+										<th>Cedula</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Fecha de Nacimiento</th>
+                                        <th>Direccion</th>
+                                        <th>Telefono</th>
+                                        <th>Cargo</th>
+                                        <th>Ubicado</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -62,7 +62,7 @@
                                             <td>{{ $empleado->zona->direccion_z}}</td>
                                             <td>
                                                 <form action="{{ route('empleado.destroy',$empleado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('empleado.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('empleado.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}
                                                     <a class="btn btn-sm btn-success" href="{{ route('empleado.edit',$empleado->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Venta;
 use App\Models\Zona;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 /**
  * Class ProductController
  * @package App\Http\Controllers
@@ -48,7 +49,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         
-
+        request()->validate(Product::$rules);
+        // agg de img
+        /*  $imageName = time().'.'.$request->image->extension();  
+        
+        $request->image->move(public_path('images'), $imageName);
+        */ //
+        if($request->hasfile('image')){
+            $path = $request->image->store('public'); 
+        }
+        
+        //
         $product = Product::create($request->all());
 
         return redirect()->route('product.index')

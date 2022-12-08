@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $zonas->links() !!}
+                {!! ($zonas->appends(['busqueda' => $busqueda])) !!}
             </div>
         </div>
     </div>

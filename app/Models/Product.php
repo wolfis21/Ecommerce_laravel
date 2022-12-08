@@ -24,12 +24,12 @@ class Product extends Model
 {
     
     static $rules = [
-		'codig_produc' => 'required',
-        'name_product' => 'required',
-        'descrip_product' => 'required',
+		    'codig_produc' => 'required|integer',
+        'name_product' => 'required|string',
+        'descrip_product' => 'required|string|min:10',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'precio_product' => 'required',
-        'cant_stock' => 'required',
+        'cant_stock' => 'required|integer',
 		    'zona_id' => 'required',
     ];
 

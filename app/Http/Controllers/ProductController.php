@@ -50,14 +50,14 @@ class ProductController extends Controller
     {
         
         request()->validate(Product::$rules);
-        // agg de img
+ /*        // agg de img
         /*$imageName = time().'.'.$request->image->extension();  
         
         $request->image->move(public_path('images'), $imageName);
         */ //
         /* if($request->hasfile('image')){
             $path = $request->image->store('public'); 
-        } */
+        } */ 
         $entrada=$request->all();
 
         if($archivo = $request->file('image')){

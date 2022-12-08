@@ -5,45 +5,51 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
+    <section class="main" id="main">
+        <div class="row justify-content-center" style="padding: 100px">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show venta</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('venta.index') }}"> Back</a>
+                            <span class="card-title">Detalles de Venta</span>
                         </div>
                     </div>
 
                     <div class="card-body">
-                    {{-- //arreglar esto aca --}}
                         <div class="form-group">
-                            <strong>id venta:</strong>
+                            <strong>ID de Venta:</strong>
                             {{ $venta->id }}
                         </div>
                         <div class="form-group">
-                            <strong>date_venta:</strong>
+                            <strong>Fecha de Venta:</strong>
                             {{ $venta->date_vent }}
                         </div>
                         
                         <div class="form-group">
-                            <strong>cliente de la venta:</strong>
+                            <strong>Cliente comprador:</strong>
                             {{ $venta->client_ref }}
                         </div>
+
+{{--                         <div class="form-group">
+                            <strong>Nombre de Producto:</strong>
+                            {{ $venta->products->name_product}}
+                        </div> --}}
+
+
                         <div class="form-group">
-                            <strong>cant_product:</strong>
+                            <strong>Cantidad:</strong>
                             {{ $venta->cant_product }}
                         </div>
 
                         <div class="form-group">
-                            <strong>precio total:</strong>
+                            <strong>Precio Total a pagar:</strong>
                             {{ $venta->precio_total}}
                         </div>
                         
                     </div>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="{{ route('venta.index') }}"> Back</a>
                 </div>
             </div>
         </div>

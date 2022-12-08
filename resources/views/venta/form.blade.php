@@ -1,18 +1,38 @@
 <div class="box box-info padding-1">
     <div class="box-body">
             <div class="form-group">
-                <label for="products">Agregar Producto</label>
-                <select name="products[]" class="form-control select2" id="products" multiple required>
-                    @foreach ($products as $id => $product)
-                        <option value="{{ $id }}">{{ $product }}</option>
+                <label for="">Agregar Producto</label>
+                <select name="products[]" class="form-control" id="product">
+                    @foreach ($products as $product)
+                        <option value="{{ $product->id }}">{{ $product->codig_produc }} - - - - {{ $product->name_product }}</option>
                     @endforeach
                 </select>
-                @if ($errors->has('products'))
+                @if ($errors->has('product'))
                     <span class="text-danger">
                         <strong>{{ $errors->first('products') }}</strong>
                     </span>
                 @endif
             </div>
+            <div class="form-group">
+                <label for="">Confirme Producto</label>
+                <select name="products_confirm" class="form-control" id="products_confirm">
+                    @foreach ($products as $product)
+                        <option value="{{ $product->precio_product}}">{{ $product->name_product }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('products_confirm'))
+                    <span class="text-danger">
+                        <strong>{{ $errors->first('products_confirm') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+{{--             <div class="form-group">
+                {{ Form::label('Confirme codigo de Producto') }}
+                {{ Form::text('product_img', $product->precio_product, ['class' => 'form-control' . ($errors->has('codigo error') ? ' is-invalid' : ''), 'placeholder' => 'confirmacion']) }}
+                {!! $errors->first('client_ref', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+ --}}
         <div class="form-group">
             {{ Form::label('date_vent') }}
             {{ Form::date('date_vent', $venta->date_vent, ['class' => 'form-control' . ($errors->has('date_vent') ? ' is-invalid' : ''), 'placeholder' => 'rif de venta']) }}

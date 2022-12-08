@@ -57,25 +57,28 @@ class VentaController extends Controller
         $venta->client_ref = $request ->client_ref;
         $venta->cant_product = $request ->cant_product;
         //sacar precio y multiplicarlo por cantidad a comprar 
-        $venta->precio_total = $request ->product_img * $request ->cant_product;
+        $venta->precio_total = $request ->products_confirm * $request ->cant_product;
+        
+        $opciones = $request->product;
+        $venta->products()->attach($opciones);
         
         $venta->save();
         //decremento de stock
-        $decremento = $request->cant_product;
+/*         $decremento = $request->cant_product;
         
         $producto = Product::find($request->product);
         $producto->cant_stock -= $decremento;
-        $producto->saveOrfail();  
+        $producto->saveOrfail();   */
 
         //
         
-        $opciones = $request->product;
 
-        foreach ($opciones as $key => $opci) {
+/*         foreach ($opciones as $key => $opci) {
             # code...
             $venta->products()->attach($opci);
 
-        }
+        } */
+
         return redirect()->route('venta.index')
             ->with('success', 'Venta created successfully.');
     }

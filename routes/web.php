@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\zonaController;
 use Illuminate\Support\Facades\Route;
@@ -25,15 +26,18 @@ Route::get('/', function () {
     return view('shop/home');
 });
 
-Route::get('/single-product', function () {
+/* Route::get('/single-product', function () {
     return view('shop/single-product');
-});
+}); */
 Route::get('/contact', function () {
     return view('shop/contact');
 });
-Route::get('/category', function () {
+/* Route::get('/category', function () {
     return view('shop/category');
-});
+}); */
+
+/* Route::resource('category', ShopController::class); */
+Route::resource('shop', ShopController::class);
 
 /* fin de shop */
 

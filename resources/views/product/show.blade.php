@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appold')
 
 @section('template_title')
     {{ $product->name ?? 'Show Product' }}

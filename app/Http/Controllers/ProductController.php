@@ -51,16 +51,27 @@ class ProductController extends Controller
         
         request()->validate(Product::$rules);
         // agg de img
-        /*  $imageName = time().'.'.$request->image->extension();  
+        /*$imageName = time().'.'.$request->image->extension();  
         
         $request->image->move(public_path('images'), $imageName);
         */ //
-        if($request->hasfile('image')){
+        /* if($request->hasfile('image')){
             $path = $request->image->store('public'); 
+        } */
+        $entrada=$request->all();
+
+        if($archivo = $request->file('image')){
+
+            $nombre = $archivo->getClientOriginalName();
+
+            $archivo->move('images/products', $nombre);
+
+            $entrada['image'] = $nombre;
         }
-        
+
+
         //
-        $product = Product::create($request->all());
+        Product::create($entrada);
 
         return redirect()->route('product.index')
             ->with('success', 'Product created successfully.');
@@ -108,9 +119,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        request()->validate(Product::$rules);
+        /* request()->validate(Product::$rules); */
+        // agg de img
+        /*$imageName = time().'.'.$request->image->extension();  
+        
+        $request->image->move(public_path('images'), $imageName);
+        */ //
+        /* if($request->hasfile('image')){
+            $path = $request->image->store('public'); 
+        } */
+        $entrada=$request->all();
 
-        $product->update($request->all());
+        if($archivo = $request->file('image')){
+
+            $nombre = $archivo->getClientOriginalName();
+
+            $archivo->move('images/products', $nombre);
+
+            $entrada['image'] = $nombre;
+        }
+
+
+        //
+        /* Product::create($entrada); */
+        $product->update($entrada);
 
         return redirect()->route('product.index')
             ->with('success', 'Product updated successfully');

@@ -13,14 +13,14 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('venta') }}
+                                {{ __('Breve resumen de Ventas') }}
                             </span>
 
-                             <div class="float-right">
+{{--                              <div class="float-right">
                                 <a href="{{ route('venta.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
-                              </div>
+                              </div> --}}
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

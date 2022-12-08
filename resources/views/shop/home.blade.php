@@ -110,12 +110,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#aboutus">
+                        <a class="nav-link" href="/">
                             Categorias {{-- tiene que ser otra pagina --}}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/category">
+                        <a class="nav-link" href="/shop">
                             Productos {{-- Tiene que se otra pagina --}}
                         </a>
                     </li>

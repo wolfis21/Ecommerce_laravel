@@ -1,4 +1,4 @@
-@extends('layouts.appold')
+@extends('layouts.app')
 
 @section('template_title')
     Crear Empresa 
@@ -6,7 +6,7 @@
 
 @section('content')
 <section class="content container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center"  style="padding: 100px">
             <div class="col-lg-4">
 
                 @includeif('partials.errors')

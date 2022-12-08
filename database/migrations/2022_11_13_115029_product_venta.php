@@ -17,15 +17,17 @@ return new class extends Migration
         Schema::create('product_venta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')
+                    ->cascadeOnDelete()
+                    ->cascadeOnUpdate()
+                    ->references('id')->on('products');
             $table->unsignedBigInteger('venta_id');
-            $table->foreign('venta_id')->references('id')->on('ventas');        
+            $table->foreign('venta_id')
+                    ->cascadeOnDelete()
+                    ->cascadeOnUpdate()
+                    ->references('id')->on('ventas');        
             
-            $table->foreign('product_id')->references('id')->on('products')
-            ->onDelate('cascade');
-      
-             $table->foreign('venta_id')->references('id')->on('ventas')
-            ->onDelate('cascade');
+
         });
     }
 

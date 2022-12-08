@@ -13,14 +13,14 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Product') }}
+                                {{ __('Productos') }}
                             </span>
 
-                             <div class="float-right">
+{{--                              <div class="float-right">
                                 <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
-                              </div>
+                              </div> --}}
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -54,14 +54,15 @@
 											<td>{{ $product->codig_produc }}</td>
 											<td>{{ $product->name_product }}</td>
                                             <td>{{ $product->descrip_product }}</td>
-                                            <td><img src="{{$product->url_path}}" alt=""></td>
+                                            <td><img height="120px" src="images/products/{{$product->image}}" /></td>
+                                            {{-- <td><img src="{{$product->image}}" alt=""></td> --}}
                                             <td>{{ $product->precio_product }}</td>
                                             <td>{{ $product->cant_stock }}</td>
                                             <td>{{ $product->zona->direccion_z }}</td>
 
                                             <td>
                                                 <form action="{{ route('product.destroy',$product->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('product.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('shop.show',$product->id) }}" target="_blank"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('product.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')

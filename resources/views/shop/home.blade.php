@@ -119,7 +119,11 @@
                             Productos {{-- Tiene que se otra pagina --}}
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            Ingreso
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -396,9 +400,9 @@
                     <ul class="nav flex-column">
                         <p>Solo para empleados</p>
                         <li class="nav-item">
-                            <a class="nav-link link-secondary ps-0" aria-current="page" href="/login" style="font-size: 25px!important">
+{{--                             <a class="nav-link link-secondary ps-0" aria-current="page" href="/login" style="font-size: 25px!important">
                                 Login
-                            </a>
+                            </a> --}}
                         </li>
                     </ul>
                 </div>

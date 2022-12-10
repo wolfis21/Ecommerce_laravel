@@ -303,7 +303,7 @@
                             <h2 class="display-6 mb-5">Echale un vistazo a nuesta variedad de productos.</h2>
                         </div>
                         <div class="col-12">
-                            <a href="/category" class="btn btn-warning btn-xl shadow me-3 mt-4"
+                            <a href="/shop" class="btn btn-warning btn-xl shadow me-3 mt-4"
                                 data-aos="fade-down">¡Vamos!</a> {{-- direccionar a tienda o productos --}}
                         </div>
                     </div>
